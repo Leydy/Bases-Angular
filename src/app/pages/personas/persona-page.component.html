@@ -1,0 +1,14 @@
+<ul>
+  @for (persona of personas(); track persona.genero; ){
+    <li>
+      Gen:
+      <strong
+        [class.text-danger]="persona.genero == 'femenino'"
+        [class.text-primary] = "persona.genero == 'masculino'"
+      >
+        {{ persona.genero}})
+      </strong>
+    </li>
+  }
+
+</ul>

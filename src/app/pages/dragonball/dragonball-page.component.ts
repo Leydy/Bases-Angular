@@ -27,11 +27,16 @@ export class DragonballPageComponent {
       name: 'Picoro',
       power: 3000,
     },
+    {
+      id: 4,
+      name: 'Yamcha',
+      power: 500,
+    },
   ]);
   powerClasses = computed(() => {
     return {
       'text-danger': true,
-      
+
     };
   });
 }
