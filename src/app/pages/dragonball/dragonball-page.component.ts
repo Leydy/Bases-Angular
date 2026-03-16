@@ -11,6 +11,13 @@ interface Character{
   imports: [NgClass],
 })
 export class DragonballPageComponent {
+  name = signal('Gohan');
+  power = signal(100);
+  addCharacter(){
+    console.log("Nombre: ", this.name());
+    console.log("Poder: ", this.power());
+  }
+
   characters = signal<Character[]>([
     {
       id: 1,
@@ -39,4 +46,5 @@ export class DragonballPageComponent {
 
     };
   });
+  protected readonly console = console;
 }
