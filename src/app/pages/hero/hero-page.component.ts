@@ -5,9 +5,12 @@ import { Component, computed, signal } from '@angular/core';
 })
 export class HeroPageComponent {
   name = signal('Ironman');
-
   age = signal(45);
 
+  heroDescription = computed(()=>{
+    const description = `${this.name()} - ${this.age()}`;
+    return description;
+  })
   getHeroDescription(): string {
     return `${this.name()} tiene ${this.age()} años`;
   }
