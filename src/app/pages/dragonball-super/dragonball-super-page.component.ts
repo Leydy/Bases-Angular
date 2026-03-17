@@ -1,26 +1,21 @@
 import { Component, computed, signal } from '@angular/core';
-import { NgClass } from '@angular/common';
 import { CharacterListComponent } from '../../components/dragonball/character-list/character-list.component';
-interface Character{
-  id: number;
-  name: string;
-  power: number;
-}
+import { Character } from '../../interfaces/character.interface';
+
+
 
 @Component({
-  templateUrl: './dragonball-page.component.html',
-
-
+  templateUrl: './dragonball-super-page.component.html',
+  selector: 'dragonball-super',
+  imports: [CharacterListComponent],
 })
-export class DragonballPageComponent {
+export class DragonballSuperPageComponent {
   name = signal('');
   power = signal(0);
-  addCharacter(){
-    if(!this.name() || !this.power() || this.power() <= 0){
+  addCharacter() {
+    if (!this.name() || !this.power() || this.power() <= 0) {
       return;
     }
-    console.log("Nombre: ", this.name());
-    console.log("Poder: ", this.power());
 
     const newCharacter: Character = {
       id: this.characters().length + 1,
@@ -32,7 +27,7 @@ export class DragonballPageComponent {
     this.resetFields();
   }
 
-  resetFields(){
+  resetFields() {
     this.name.set(' ');
     this.power.set(0);
   }
@@ -42,9 +37,12 @@ export class DragonballPageComponent {
       name: 'Goku',
       power: 9001,
     },
-
+    {
+      id: 2,
+      name: 'Vegeta',
+      power: 8000,
+    },
   ]);
-
 
   protected readonly console = console;
 }

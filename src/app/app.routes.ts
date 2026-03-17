@@ -3,6 +3,7 @@ import { CounterPageComponent } from './pages/counter/counter-page.component';
 import { HeroPageComponent } from './pages/hero/hero-page.component';
 import { DragonballPageComponent} from './pages/dragonball/dragonball-page.component';
 import { PersonaPageComponent } from './pages/personas/persona-page.component';
+import { DragonballSuperPageComponent } from './pages/dragonball-super/dragonball-super-page.component';
 
 export const routes: Routes = [
   {
@@ -18,7 +19,7 @@ export const routes: Routes = [
     component: DragonballPageComponent,
   },
   {
-    path: 'personas',
-    component: PersonaPageComponent,
+    path: 'dragonball-super',
+    component: DragonballSuperPageComponent,
   }
 ];
