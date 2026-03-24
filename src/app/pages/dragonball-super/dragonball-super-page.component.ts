@@ -13,8 +13,10 @@ import { CharacterAddComponent } from '../../components/dragonball/character-add
 export class DragonballSuperPageComponent {
   name = signal('');
   power = signal(0);
-  addCharacter() {
-    if (!this.name() || !this.power() || this.power() <= 0) {
+  addCharacter(character: Character) {
+    this.characters.update(
+      (list) => [...list, character]);
+    /*if (!this.name() || !this.power() || this.power() <= 0) {
       return;
     }
 
@@ -27,7 +29,7 @@ export class DragonballSuperPageComponent {
     //this.characters().push(newCharacter);
     //this.characters.update((list) => [...list, newCharacter]);
     console.log({ newCharacter });
-    this.resetFields();
+    this.resetFields();*/
   }
 
   resetFields() {

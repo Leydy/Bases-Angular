@@ -1,4 +1,4 @@
-import { Component, input, signal } from '@angular/core';
+import { Component, output, signal } from '@angular/core';
 import type { Character } from '../../../interfaces/character.interface';
 
 @Component({
@@ -9,6 +9,9 @@ export class CharacterAddComponent {
 
   name = signal('');
   power = signal(0);
+
+  newCharacter = output<Character>();
+
   addCharacter(){
     if (!this.name() || !this.power() || this.power() <= 0) {
       return;
@@ -16,13 +19,14 @@ export class CharacterAddComponent {
 
     const newCharacter: Character = {
       //id: this.characters().length + 1,
-      id: 10000,
+      id: Math.floor(Math.random() * 10000),
       name: this.name(),
       power: this.power(),
     };
     //this.characters().push(newCharacter);
     //this.characters.update((list) => [...list, newCharacter]);
-    console.log({ newCharacter });
+    //console.log({ newCharacter });
+    this.newCharacter.emit(newCharacter);
     this.resetFields();
     }
 
